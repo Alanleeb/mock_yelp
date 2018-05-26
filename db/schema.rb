@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 2018_05_25_195657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "restaurants", id: false, force: :cascade do |t|
+    t.string "name", limit: 255
+    t.string "type", limit: 255
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "price"
     t.text "review"

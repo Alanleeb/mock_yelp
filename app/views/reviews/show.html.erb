@@ -1,1 +1,20 @@
-<h1> See Reviews</h1>
+<h1>Reviews</h1>
+<table>
+    <tr>
+      <th>Price</th>
+      <th>Stars</th>
+      <th>Review</th>
+    </tr>
+    <% @review.each do |review| %>
+      <tr>
+         <% m = ['$', '$$', '$$$'] %>
+        <td><%= m[review.price - 1]  %></td>
+        <% s = ['*', '**', '***', '****', '*****'] %>
+        <td><%= s[review.stars - 1]  %>/*****</td>
+        <td><%= review.review %></td>
+        <td><%= link_to 'Edit', edit_review_path(review.id) %></td>
+        <td><%= link_to 'Delete', review_path(review.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Add A Review', new_review_path %>

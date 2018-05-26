@@ -26,7 +26,7 @@ end
   end
 
   def update
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
 
     if @review.update(review_params)
       redirect_to review_path :new

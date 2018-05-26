@@ -7,5 +7,13 @@ class CreateReviews < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-  end
+
+    def changed
+      create_table :restaurants do |r|
+        r.varchar :name
+        r.varchar :type
+
+        r.timestamps
+    end
+  
 end

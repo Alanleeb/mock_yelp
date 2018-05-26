@@ -1,19 +1,2 @@
 <h1>Restaurants</h1>
-<table>
-    <tr>
-      <th>Price</th>
-      <th>Stars</th>
-      <th>Review</th>
-    </tr>
-    <% @reviews.each do |review| %>
-      <tr>
-         <% m = ['$', '$$', '$$$'] %>
-        <td><%= review.price %></td>
-        <td><%= review.stars %>/5</td>
-        <td><%= review.review %></td>
-        <td><%= link_to 'See Reviews', review_path(review.id) %></td>
-        <td><%= link_to 'Edit', edit_review_path(review.id) %></td>
-        <td><%= link_to 'Delete', review_path(review.id), method: :delete %></td>
-      </tr>
-    <% end %>
-  </table>
+<%= link_to 'See Reviews', review_path(@reviews) %>
